@@ -861,10 +861,7 @@ static int map_delete_elem(union bpf_attr *attr)
 	preempt_enable();
 	maybe_wait_bpf_programs(map);
 out:
-	if (!err)
-		trace_bpf_map_delete_elem(map, ufd, key);
-	if (key != key_onstack)
-		kfree(key);
+	kfree(key);
 err_put:
 	fdput(f);
 	return err;
