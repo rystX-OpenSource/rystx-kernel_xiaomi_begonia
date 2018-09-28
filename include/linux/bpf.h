@@ -199,6 +199,22 @@ struct bpf_verifier_ops {
 				  struct bpf_prog *prog, u32 *target_size);
 };
 
+struct bpf_dev_offload {
+	struct bpf_prog		*prog;
+	struct net_device	*netdev;
+	void			*dev_priv;
+	struct list_head	offloads;
+	bool			dev_state;
+	bool			verifier_running;
+	wait_queue_head_t	verifier_done;
+};
+
+enum bpf_cgroup_storage_type {
+	BPF_CGROUP_STORAGE_SHARED,
+	__BPF_CGROUP_STORAGE_MAX
+};
+#define MAX_BPF_CGROUP_STORAGE_TYPE __BPF_CGROUP_STORAGE_MAX
+
 struct bpf_prog_aux {
 	atomic_t refcnt;
 	u32 used_map_cnt;
@@ -215,7 +231,7 @@ struct bpf_prog_aux {
 	void *security;
 #endif
 	u64 load_time; /* ns since boottime */
-	struct bpf_map *cgroup_storage;
+	struct bpf_map *cgroup_storage[MAX_BPF_CGROUP_STORAGE_TYPE];
 	char name[BPF_OBJ_NAME_LEN];
 	union {
 		struct work_struct work;
@@ -283,7 +299,7 @@ int bpf_prog_test_run_skb(struct bpf_prog *prog, const union bpf_attr *kattr,
  */
 struct bpf_prog_array_item {
 	struct bpf_prog *prog;
-	struct bpf_cgroup_storage *cgroup_storage;
+	struct bpf_cgroup_storage *cgroup_storage[MAX_BPF_CGROUP_STORAGE_TYPE];
 };
 
 struct bpf_prog_array {
