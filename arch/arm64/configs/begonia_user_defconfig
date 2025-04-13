@@ -64,6 +64,21 @@ CONFIG_HAVE_ARCH_AUDITSYSCALL=y
 CONFIG_AUDIT_WATCH=y
 CONFIG_AUDIT_TREE=y
 
+# AiKernel - Changes
+###########################################################
+# Manual integration, no kprobes
+CONFIG_KPROBES=n
+CONFIG_HAVE_KPROBES=n
+CONFIG_KPROBE_EVENTS=n
+CONFIG_KPROBE_EVENT=n
+# PowerSuspend v2.0
+CONFIG_POWERSUSPEND=y
+# Anxiety I/O
+CONFIG_IOSCHED_ANXIETY=y
+CONFIG_DEFAULT_ANXIETY=y
+CONFIG_IOSCHED_BFQ=y
+CONFIG_BFQ_GROUP_IOSCHED=y
+###########################################################
 #
 # IRQ subsystem
 #
