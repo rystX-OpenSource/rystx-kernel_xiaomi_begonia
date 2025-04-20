@@ -125,9 +125,9 @@
 
 /* 6785T */
 /* for DVFS OPP table L */
-#define CPU_DVFS_FREQ0_LL_6785T		2000000		/* KHz */
-#define CPU_DVFS_FREQ1_LL_6785T		1933000		/* KHz */
-#define CPU_DVFS_FREQ2_LL_6785T		1866000		/* KHz */
+#define CPU_DVFS_FREQ0_LL_6785T		2077000		/* KHz */
+#define CPU_DVFS_FREQ1_LL_6785T		1994000		/* KHz */
+#define CPU_DVFS_FREQ2_LL_6785T		1913000		/* KHz */
 #define CPU_DVFS_FREQ3_LL_6785T		1800000		/* KHz */
 #define CPU_DVFS_FREQ4_LL_6785T		1733000		/* KHz */
 #define CPU_DVFS_FREQ5_LL_6785T		1666000		/* KHz */
@@ -143,9 +143,9 @@
 #define CPU_DVFS_FREQ15_LL_6785T	500000		/* KHz */
 
 /* for DVFS OPP table B */
-#define CPU_DVFS_FREQ0_L_6785T		2050000		/* KHz */
-#define CPU_DVFS_FREQ1_L_6785T		1986000		/* KHz */
-#define CPU_DVFS_FREQ2_L_6785T		1923000		/* KHz */
+#define CPU_DVFS_FREQ0_L_6785T		2145000		/* KHz */
+#define CPU_DVFS_FREQ1_L_6785T		2029000		/* KHz */
+#define CPU_DVFS_FREQ2_L_6785T		1977000		/* KHz */
 #define CPU_DVFS_FREQ3_L_6785T		1860000		/* KHz */
 #define CPU_DVFS_FREQ4_L_6785T		1796000		/* KHz */
 #define CPU_DVFS_FREQ5_L_6785T		1733000		/* KHz */
@@ -157,8 +157,8 @@
 #define CPU_DVFS_FREQ11_L_6785T		1085000		/* KHz */
 #define CPU_DVFS_FREQ12_L_6785T		1002000		/* KHz */
 #define CPU_DVFS_FREQ13_L_6785T		919000		/* KHz */
-#define CPU_DVFS_FREQ14_L_6785T		835000		/* KHz */
-#define CPU_DVFS_FREQ15_L_6785T		774000		/* KHz */
+#define CPU_DVFS_FREQ14_L_6785T		774000		/* KHz */
+#define CPU_DVFS_FREQ15_L_6785T		530000		/* KHz */
 
 /* for DVFS OPP table CCI */
 #define CPU_DVFS_FREQ0_CCI_6785T	1400000		/* KHz */
@@ -211,8 +211,8 @@
 #define CPU_DVFS_VOLT11_VPROC2_6785T     77500          /* 10uV */
 #define CPU_DVFS_VOLT12_VPROC2_6785T     74375          /* 10uV */
 #define CPU_DVFS_VOLT13_VPROC2_6785T     71875          /* 10uV */
-#define CPU_DVFS_VOLT14_VPROC2_6785T     69375          /* 10uV */
-#define CPU_DVFS_VOLT15_VPROC2_6785T     67500          /* 10uV */
+#define CPU_DVFS_VOLT14_VPROC2_6785T     67500          /* 10uV */
+#define CPU_DVFS_VOLT15_VPROC2_6785T     60000          /* 10uV */
 
 /* for DVFS OPP table CCI */
 #define CPU_DVFS_VOLT0_VPROC3_6785T	103125		/* 10uV */
@@ -521,7 +521,7 @@ static struct mt_cpu_freq_method opp_tbl_method_L_6785T[] = {	/* 6785T */
 	FP(2,	1),
 	FP(2,	1),
 	FP(2,	1),
-	FP(2,	1),
+	FP(4,	1),
 	FP(4,	1),
 };
 
