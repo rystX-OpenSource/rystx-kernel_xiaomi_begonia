@@ -78,6 +78,8 @@ CONFIG_IOSCHED_ANXIETY=y
 CONFIG_DEFAULT_ANXIETY=y
 CONFIG_IOSCHED_BFQ=y
 CONFIG_BFQ_GROUP_IOSCHED=y
+# Wireguard
+CONFIG_WIREGUARD=y
 ###########################################################
 #
 # IRQ subsystem
