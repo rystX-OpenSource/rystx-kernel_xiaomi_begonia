@@ -106,9 +106,15 @@ static int call_usermodehelper_exec_async(void *data)
 
 	commit_creds(new);
 
-	retval = do_execve(getname_kernel(sub_info->path),
-			   (const char __user *const __user *)sub_info->argv,
-			   (const char __user *const __user *)sub_info->envp);
+	if (sub_info->file) {
+		retval = do_execve_file(sub_info->file,
+					sub_info->argv, sub_info->envp);
+		if (!retval)
+			current->flags |= PF_UMH;
+	} else
+		retval = do_execve(getname_kernel(sub_info->path),
+				   (const char __user *const __user *)sub_info->argv,
+				   (const char __user *const __user *)sub_info->envp);
 out:
 	sub_info->retval = retval;
 	/*
@@ -127,7 +133,7 @@ static void call_usermodehelper_exec_sync(struct subprocess_info *sub_info)
 {
 	pid_t pid;
 
-	/* If SIGCLD is ignored sys_wait4 won't populate the status. */
+	/* If SIGCLD is ignored kernel_wait4 won't populate the status. */
 	kernel_sigaction(SIGCHLD, SIG_DFL);
 	pid = kernel_thread(call_usermodehelper_exec_async, sub_info, SIGCHLD);
 	if (pid < 0) {
@@ -144,7 +150,7 @@ static void call_usermodehelper_exec_sync(struct subprocess_info *sub_info)
 		 *
 		 * Thus the __user pointer cast is valid here.
 		 */
-		sys_wait4(pid, (int __user *)&ret, 0, NULL);
+		kernel_wait4(pid, (int __user *)&ret, 0, NULL);
 
 		/*
 		 * If ret is 0, either call_usermodehelper_exec_async failed and
@@ -504,7 +510,7 @@ int call_usermodehelper(const char *path, char **argv, char **envp, int wait)
 EXPORT_SYMBOL(call_usermodehelper);
 
 static int proc_cap_handler(struct ctl_table *table, int write,
-			 void __user *buffer, size_t *lenp, loff_t *ppos)
+			 void *buffer, size_t *lenp, loff_t *ppos)
 {
 	struct ctl_table t;
 	unsigned long cap_array[_KERNEL_CAPABILITY_U32S];

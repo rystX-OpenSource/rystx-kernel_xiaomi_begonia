@@ -53,6 +53,7 @@ cd5b9d657ecd44ad5f254c3fea3a6ab1cf0e2ef7:
 71d74f78ae565a64eae3022020a9d4e82dace694:
   title: 'ASoC: allow module autoloading for table db1200_pids'
 <<<<<<< HEAD
+<<<<<<< HEAD
   mainline: 0e9fdab1e8df490354562187cdbb8dec643eae2c
   backport: a7d6bf885524c3d4063dd145fb93c2c89cc98848
 33d615ee40f0651bb3d282a66e6f59eae6ea4ada:
@@ -1384,6 +1385,8 @@ efc67cee700b89ffbdb74a0603a083ec1290ae31:
   mainline: f956052e00de211b5c9ebaa1958366c23f82ee9e
   skipped: fixes patch not in branch
 =======
+=======
+>>>>>>> 8636bbe86115ca59cc6833c8cb733bdf33f15c2c
   mainline: <pygit2.Object{commit:0e9fdab1e8df490354562187cdbb8dec643eae2c}>
   backport: e378196e1b83cbd0a41113fa55db62a3bf0aa6ed
 33d615ee40f0651bb3d282a66e6f59eae6ea4ada:
@@ -2714,4 +2717,7 @@ efc67cee700b89ffbdb74a0603a083ec1290ae31:
   title: 'vt: prevent kernel-infoleak in con_font_get()'
   mainline: <pygit2.Object{commit:f956052e00de211b5c9ebaa1958366c23f82ee9e}>
   skipped: (unknown reason)
+<<<<<<< HEAD
 >>>>>>> 1e6347375d088ecc896aabb067131d0f9e3c0575
+=======
+>>>>>>> 8636bbe86115ca59cc6833c8cb733bdf33f15c2c

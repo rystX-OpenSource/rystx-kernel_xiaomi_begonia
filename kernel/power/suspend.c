@@ -643,7 +643,7 @@ static int enter_state(suspend_state_t state)
 		goto Unlock;
 	}
 #else
-	sys_sync();
+	ksys_sync();
 #endif
 	pr_cont("done.\n");
 	trace_suspend_resume(TPS("sync_filesystems"), 0, false);
